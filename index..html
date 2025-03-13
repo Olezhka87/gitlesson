@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анализ показателей</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="./script.js"></script>
+</head>
+<body>
+
+  <h2 style="text-align: center;">Анализ показателей</h2>
+
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>Показатель</th>
+        <th>Текущий день</th>
+        <th>Вчера</th>
+        <th>Этот день недели</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr id="revenue-row" onclick="showGraph('revenue', this)">
+        <td class="highlight-light-grey">Выручка</td>
+        <td class="highlight-blue current-day" contenteditable="true" oninput="updateData(this, 'revenue')">500 521</td>
+        <td class="highlight-green yesterday" contenteditable="true" oninput="updateData(this, 'revenue')">480 521 <span class="percentage">4%</span></td>
+        <td class="highlight-red result">4 805 121</td> 
+      </tr>
+      <tr id="cash-row" onclick="showGraph('cash', this)">
+        <td class="highlight-light-grey">Наличные</td>
+        <td class="highlight-blue current-day" contenteditable="true" oninput="updateData(this, 'cash')">300 000</td>
+        <td class="highlight-grey yesterday" contenteditable="true" oninput="updateData(this, 'cash')">300 000 <span class="percentage">0%</span></td>
+        <td class="highlight-grey result">300 000</td>
+      </tr>
+      <tr id="card-row" onclick="showGraph('card', this)">
+        <td class="highlight-light-grey">Безналичный расчет</td>
+        <td class="highlight-blue current-day" contenteditable="true" oninput="updateData(this, 'card')">100 000</td>
+        <td class="highlight-grey yesterday" contenteditable="true" oninput="updateData(this, 'card')">100 000 <span class="percentage">0%</span></td>
+        <td class="highlight-grey result">100 000</td>
+      </tr>
+      <tr id="credit-card-row" onclick="showGraph('credit_card', this)">
+        <td class="highlight-light-grey">Кредитные карты</td>
+        <td class="highlight-blue current-day" contenteditable="true" oninput="updateData(this, 'credit_card')">100 521</td>
+        <td class="highlight-grey yesterday" contenteditable="true" oninput="updateData(this, 'credit_card')">100 521 <span class="percentage">0%</span></td>
+        <td class="highlight-grey result">100 521</td>
+      </tr>
+      <tr id="avg_check-row" onclick="showGraph('avg_check', this)">
+        <td class="highlight-light-grey">Средний чек, руб</td>
+        <td class="highlight-blue current-day" contenteditable="true" oninput="updateData(this, 'avg_check')">1 300</td>
+        <td class="highlight-green yesterday" contenteditable="true" oninput="updateData(this, 'avg_check')">900 <span class="percentage">44%</span></td>
+        <td class="highlight-green result">1 100</td>
+      </tr>
+      <tr id="avg_guest-row" onclick="showGraph('avg_guest', this)">
+        <td class="highlight-light-grey">Средний гость, руб</td>
+        <td class="highlight-blue current-day" contenteditable="true" oninput="updateData(this, 'avg_guest')">1 200</td>
+        <td class="highlight-green yesterday" contenteditable="true" oninput="updateData(this, 'avg_guest')">800 <span class="percentage">50%</span></td>
+        <td class="highlight-green result">1 000</td>
+      </tr>
+      <tr id="removal_after_payment-row" onclick="showGraph('removal_after_payment', this)">
+        <td class="highlight-light-grey">Удаление из чека (после оплаты)</td>
+        <td class="highlight-blue current-day" contenteditable="true" oninput="updateData(this, 'removal_after_payment')">1 000</td>
+        <td class="highlight-red yesterday" contenteditable="true" oninput="updateData(this, 'removal_after_payment')">1 100 <span class="percentage">-9%</span></td>
+        <td class="highlight-red result">1 050</td>
+      </tr>
+      <tr id="removal_before_payment-row" onclick="showGraph('removal_before_payment', this)">
+        <td class="highlight-light-grey">Удаление из чека (до оплаты)</td>
+        <td class="highlight-blue current-day" contenteditable="true" oninput="updateData(this, 'removal_before_payment')">1 300</td>
+        <td class="highlight-grey yesterday" contenteditable="true" oninput="updateData(this, 'removal_before_payment')">1 300 <span class="percentage">0%</span></td>
+        <td class="highlight-grey result">1 300</td>
+      </tr>
+      <tr id="checks-row" onclick="showGraph('checks', this)">
+        <td class="highlight-light-grey">Количество чеков</td>
+        <td class="highlight-blue current-day" contenteditable="true" oninput="updateData(this, 'checks')">34</td>
+        <td class="highlight-red yesterday" contenteditable="true" oninput="updateData(this, 'checks')">36 <span class="percentage">-6%</span></td>
+        <td class="highlight-red result">35</td>
+      </tr>
+      <tr id="guests-row" onclick="showGraph('guests', this)">
+        <td class="highlight-light-grey">Количество гостей</td>
+        <td class="highlight-blue current-day" contenteditable="true" oninput="updateData(this, 'guests')">34</td>
+        <td class="highlight-red yesterday" contenteditable="true" oninput="updateData(this, 'guests')">36 <span class="percentage">-6%</span></td>
+        <td class="highlight-red result">35</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
